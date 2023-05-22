@@ -1,10 +1,6 @@
 const winston = require('winston');
 
-export class logger{
-    message: any;
-    constructor(message:any) {
-        this.message = message;
-      }
+class Logger{
 logger = winston.createLogger({
     level: 'debug',
     format: winston.format.json(),
@@ -23,11 +19,6 @@ Info(message:any){
 Error(message:any){
       this.logger.log('info', message)
   }
-}
-
-
-function Logger(){
-  return new logger('')
 }
 
 export default Logger

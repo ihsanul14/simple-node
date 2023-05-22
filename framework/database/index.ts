@@ -1,7 +1,7 @@
-import { mysql_pool } from "./mysql";
+import {MySQL}  from "./mysql";
 
 const database = {
-    mysql_pool
+    MySQL
 }
 
 export default database 
