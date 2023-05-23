@@ -1,8 +1,9 @@
 const winston = require('winston');
+const env = require('../env')
 
 class Logger{
 logger = winston.createLogger({
-    level: 'debug',
+    level: env.logLevel,
     format: winston.format.json(),
     transports: [
       new winston.transports.Console(),
@@ -17,7 +18,7 @@ Info(message:any){
     this.logger.log('info', message)
     }
 Error(message:any){
-      this.logger.log('info', message)
+      this.logger.log('error', message)
   }
 }
 

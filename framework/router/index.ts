@@ -12,7 +12,7 @@ class Router{
     const port = env.port;
     router.listen(port, () => {
       const logger = new Logger()
-      logger.Debug(`Server is running on port ${port}`);
+      logger.Info(`Server is running on port ${port}`);
   });
   } 
 }

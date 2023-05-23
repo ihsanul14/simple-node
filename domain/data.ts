@@ -1,6 +1,7 @@
 import { MySQL } from "../framework/database/mysql";
 
 const mysql = new MySQL()
+const mysql2 = require('mysql2')
 export class DataDomain{
     async GetData(){
         var query = "SELECT * FROM testing"
@@ -15,6 +16,9 @@ export class DataDomain{
         const connection = await mysql.Connect().getConnection();
         const [data] = await connection.query(query,[id]);
         connection.release();
+        if (data.length === 0){
+            throw {code: 404, message: `no data found with id ${id}`}
+        }
         return data
     }
     

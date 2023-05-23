@@ -1,5 +1,8 @@
+import Logger from "../logger";
+
 const mysql = require('mysql2/promise');
 const env = require('../env')
+const logger = new Logger()
 
 export class MySQL{
   Connect(){
@@ -11,14 +14,6 @@ export class MySQL{
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0
-    });
-  
-    pool.getConnection((err:any, connection:any) => {
-      if (err) {
-        throw new Error(`Error connecting to MySQL: ${err}`);
-      }
-      console.log('Connected to MySQL!');
-      connection.promise();
     });
     
     process.on('exit', () => {
