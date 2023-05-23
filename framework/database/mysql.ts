@@ -1,12 +1,13 @@
 const mysql = require('mysql2/promise');
+const env = require('../env')
 
 export class MySQL{
   Connect(){
     var pool = mysql.createPool({
-      host: 'localhost',
-      user: 'root',
-      password: 'A123b456c',
-      database: 'mydb',
+      host: env.database.mysql.host,
+      user: env.database.mysql.user,
+      password: env.database.mysql.password,
+      database: env.database.mysql.database,
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0

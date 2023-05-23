@@ -3,12 +3,13 @@ import Logger from "../logger";
 
 const express = require('express');
 const router = express();
+const env = require('../env')
 
 class Router{
   Run(){
     router.use(express.json())
     DataRoutes(router)
-    const port = 30001;
+    const port = env.port;
     router.listen(port, () => {
       const logger = new Logger()
       logger.Debug(`Server is running on port ${port}`);

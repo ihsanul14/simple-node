@@ -1,9 +1,10 @@
+const env = require('../../../framework/env')
 const jwt = require('jsonwebtoken');
-const secretKey = 'your_secret_key';
+const secretKey = env.jwt.secret
+
 export class Jwt{
     generateToken = () =>{
         const payload = { userId: 123456 };
-
         const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
         return token
     }
