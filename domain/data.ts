@@ -2,13 +2,18 @@ import { MySQL } from "../framework/database/mysql";
 
 const mysql = new MySQL()
 export class DataDomain{
-    async GetData(req:any){
+    async GetData(){
         var query = "SELECT * FROM testing"
-        if (req.id > 0){
-            query = `SELECT * from testing WHERE id = ${req.id}`
-        }
         const connection = await mysql.Connect().getConnection();
         const [data] = await connection.query(query);
+        connection.release();
+        return data
+    }
+
+    async GetDataById(id:number){
+        var query = "SELECT * FROM testing where id = ?"
+        const connection = await mysql.Connect().getConnection();
+        const [data] = await connection.query(query,[id]);
         connection.release();
         return data
     }
@@ -21,19 +26,19 @@ export class DataDomain{
         return req.nama
     }
     
-    async UpdateData(req:any){
+    async UpdateData(id:number,req:any){
         var query = `UPDATE testing SET nama = ?, updated_at = now() WHERE id = ?`
         const connection = await mysql.Connect().getConnection();
-        await connection.query(query,[req.nama, req.id]);
+        await connection.query(query,[req.nama, id]);
         connection.release();
-        return req.id
+        return id
     }
     
-    async DeleteData(req:any){
-        var query = `DELETE FROM testing WHERE id = ${req.id}`
+    async DeleteData(id:number){
+        var query = `DELETE FROM testing WHERE id = ?`
         const connection = await mysql.Connect().getConnection();
-        await connection.query(query);
+        await connection.query(query,[id]);
         connection.release();
-        return req.id
+        return id
     }
 }
