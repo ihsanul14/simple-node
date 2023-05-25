@@ -2,21 +2,41 @@
   "name": "test-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.ts",
-    "start": "node index.ts"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "mocha --config mocha.config.js tests/**/*.js",
+    "build": "babel --out-dir dist"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.3.1",
     "nodemon": "^2.0.22",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "ts-node": "^10.9.1",
+    "webpack": "^5.83.1",
     "winston": "^3.8.2",
     "yup": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/eslint-parser": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@types/mocha": "^10.0.1",
+    "@types/sinon": "^10.0.15",
+    "chai": "^4.3.7",
+    "eslint-plugin-import": "^2.27.5",
+    "mocha": "^10.2.0",
+    "sinon": "^15.1.0",
+    "typescript": "^5.0.4",
+    "webpack-cli": "^5.1.1"
   }
 }

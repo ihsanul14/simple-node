@@ -1,8 +1,7 @@
-import { MySQL } from "../framework/database/mysql";
+const MySQL =  require("../framework/database/mysql");
 
 const mysql = new MySQL()
-const mysql2 = require('mysql2')
-export class DataDomain{
+class DataDomain{
     async GetData(){
         var query = "SELECT * FROM testing"
         const connection = await mysql.Connect().getConnection();
@@ -11,7 +10,7 @@ export class DataDomain{
         return data
     }
 
-    async GetDataById(id:number){
+    async GetDataById(id){
         var query = "SELECT * FROM testing where id = ?"
         const connection = await mysql.Connect().getConnection();
         const [data] = await connection.query(query,[id]);
@@ -22,7 +21,7 @@ export class DataDomain{
         return data
     }
     
-    async CreateData(req:any){
+    async CreateData(req){
         var query = `INSERT INTO testing (nama, created_at) VALUES (?, now())`
         const connection = await mysql.Connect().getConnection();
         await connection.query(query,[req.nama]);
@@ -30,7 +29,7 @@ export class DataDomain{
         return req.nama
     }
     
-    async UpdateData(id:number,req:any){
+    async UpdateData(id,req){
         var query = `UPDATE testing SET nama = ?, updated_at = now() WHERE id = ?`
         const connection = await mysql.Connect().getConnection();
         await connection.query(query,[req.nama, id]);
@@ -38,7 +37,7 @@ export class DataDomain{
         return id
     }
     
-    async DeleteData(id:number){
+    async DeleteData(id){
         var query = `DELETE FROM testing WHERE id = ?`
         const connection = await mysql.Connect().getConnection();
         await connection.query(query,[id]);
@@ -46,3 +45,5 @@ export class DataDomain{
         return id
     }
 }
+
+module.exports = DataDomain

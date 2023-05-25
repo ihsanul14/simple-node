@@ -1,24 +1,26 @@
-import Domain from "../domain";
+const Domain = require("../domain");
 
 const domain = new Domain()
-export class DataUsecase{
+class DataUsecase{
     GetDataUseCase(){
         return domain.Data.GetData()
     }
 
-    GetDataByIdUseCase(id:number){
+    GetDataByIdUseCase(id){
         return domain.Data.GetDataById(id)
     }
     
-    CreateDataUseCase(req:any){
+    CreateDataUseCase(req){
         return domain.Data.CreateData(req)
     }
     
-    UpdateDataUseCase(id:number,req:any){
+    UpdateDataUseCase(id,req){
         return domain.Data.UpdateData(id, req)
     }
     
-    DeleteDataUseCase(req:any){
+    DeleteDataUseCase(req){
         return domain.Data.DeleteData(req)
     }
 }
+
+module.exports = DataUsecase

@@ -1,4 +1,4 @@
-import Router from './router'
+const Router = require('./router') 
 
 class Framework{
     Start(){
@@ -7,4 +7,4 @@ class Framework{
     }
 }
 
-export default Framework
+module.exports = Framework

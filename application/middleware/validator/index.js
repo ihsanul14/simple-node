@@ -1,13 +1,13 @@
 const yup = require('yup');
 
 
-export class Validator{
-    Validate = (schema:any) => {
-        return (req:any, res:any, next:any)=> {
+class Validator{
+    Validate = (schema) => {
+        return (req, res, next)=> {
             schema
             .validate(req.body)
             .then(() => next())
-            .catch((error:any) => {
+            .catch((error) => {
             res.status(400).json({status: "failed", message: error.message});
             });    
         }  
@@ -25,4 +25,4 @@ export class Validator{
     });
 }
 
-
+module.exports = Validator

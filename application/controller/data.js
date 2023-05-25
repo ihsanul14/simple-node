@@ -1,24 +1,26 @@
-import Usecase from "../../usecase"
+const Usecase = require("../../usecase")
 const usecase = new Usecase()
   
-export class DataController{
+class DataController{
     GetData(){
         return usecase.Data.GetDataUseCase()
     }
 
-    GetDataById(id: number){
+    GetDataById(id){
         return usecase.Data.GetDataByIdUseCase(id)
     }
     
-    CreateData(req:any){
+    CreateData(req){
         return usecase.Data.CreateDataUseCase(req)
     }
     
-    UpdateData(id:number,req:any){
+    UpdateData(id,req){
         return usecase.Data.UpdateDataUseCase(id, req)
     }
     
-    DeleteData(id:number){
+    DeleteData(id){
         return usecase.Data.DeleteDataUseCase(id)
     }
 }
+
+module.exports = DataController

@@ -10,16 +10,16 @@ logger = winston.createLogger({
     ]
   });
 
-Debug(message:any){
+Debug(message){
 this.logger.log('debug', message)
 }
 
-Info(message:any){
+Info(message){
     this.logger.log('info', message)
     }
-Error(message:any){
+Error(message){
       this.logger.log('error', message)
   }
 }
 
-export default Logger
+module.exports = Logger
