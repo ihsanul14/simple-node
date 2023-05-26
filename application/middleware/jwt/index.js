@@ -1,5 +1,5 @@
-const env = require('../../../framework/env')
-const jwt = require('jsonwebtoken');
+import env from '../../../framework/env/index.js';
+import jwt from 'jsonwebtoken'
 const secretKey = env.jwt.secret
 
 class Jwt{
@@ -26,4 +26,4 @@ class Jwt{
       };
 }
 
-module.exports = Jwt
+export default Jwt

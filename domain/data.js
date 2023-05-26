@@ -1,12 +1,14 @@
-const MySQL =  require("../framework/database/mysql");
-
+import {MySQL} from '../framework/database/mysql.js'
 const mysql = new MySQL()
-class DataDomain{
+export class DataDomain{
     async GetData(){
         var query = "SELECT * FROM testing"
         const connection = await mysql.Connect().getConnection();
         const [data] = await connection.query(query);
         connection.release();
+        if (data.length === 0){
+            throw {code: 404, message: `no data found`}
+        }
         return data
     }
 
@@ -45,5 +47,3 @@ class DataDomain{
         return id
     }
 }
-
-module.exports = DataDomain

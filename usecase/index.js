@@ -1,8 +1,7 @@
-const DataUsecase = require("./data") 
-class Usecase{
-    Data = new DataUsecase()
+ class Usecase{
+    Data
+    constructor(dataUsecase){
+        this.Data = dataUsecase
+    }
 }
-
-
-
-module.exports = Usecase
+export default Usecase

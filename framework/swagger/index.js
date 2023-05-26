@@ -1,7 +1,8 @@
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+import swaggerUi from 'swagger-ui-express'
+import swaggerJsdoc from 'swagger-jsdoc'
 
-const swaggerOptions = {
+export const SwaggerUi = swaggerUi
+export const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
@@ -12,10 +13,4 @@ const swaggerOptions = {
   apis: ['./router/*.ts'], // Path to your route files
 };
 
-const swaggerSpec = swaggerJsdoc(swaggerOptions);
-
-module.exports = {
-  swaggerUi,
-  swaggerOptions,
-  swaggerSpec
-}
+export const swaggerSpec = swaggerJsdoc(swaggerOptions);

@@ -1,7 +1,8 @@
-const Domain = require("../domain");
-
-const domain = new Domain()
-class DataUsecase{
+import Domain from '../domain/index.js'
+import {DataDomain} from '../domain/data.js' 
+const dataDomain = new DataDomain()
+const domain = new Domain(dataDomain)
+export class DataUsecase{
     GetDataUseCase(){
         return domain.Data.GetData()
     }
@@ -22,5 +23,3 @@ class DataUsecase{
         return domain.Data.DeleteData(req)
     }
 }
-
-module.exports = DataUsecase

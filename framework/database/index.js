@@ -1,7 +1,6 @@
-const {MySQL}  = require("./mysql");
-
+import {MySQL} from './mysql.js'
 const database = {
     MySQL
 }
 
-module.exports = database 
+export default database 

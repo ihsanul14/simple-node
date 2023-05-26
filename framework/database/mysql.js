@@ -1,10 +1,7 @@
-const Logger = require("../logger");
+import mysql from 'mysql2/promise';
+import env from '../env/index.js'
 
-const mysql = require('mysql2/promise');
-const env = require('../env')
-const logger = new Logger()
-
-class MySQL{
+export class MySQL{
   Connect(){
     var pool = mysql.createPool({
       host: env.database.mysql.host,
@@ -23,5 +20,3 @@ class MySQL{
     return pool
   }
 }
-
-module.exports = MySQL

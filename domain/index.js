@@ -1,9 +1,7 @@
-const DataDomain = require("./data");
-
 class Domain{
-    Data = new DataDomain()
+    Data
+    constructor(dataDomain){
+        this.Data = dataDomain
+    }
 }
-
-
-
-module.exports = Domain
+export default Domain

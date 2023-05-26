@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "mocha --config mocha.config.js tests/**/*.js",
+    "test": "mocha --config mocha.config.cjs tests/**/*.js",
     "build": "babel --out-dir dist"
   },
   "author": "",

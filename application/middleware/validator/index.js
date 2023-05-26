@@ -1,4 +1,4 @@
-const yup = require('yup');
+import yup from 'yup';
 
 
 class Validator{
@@ -25,4 +25,4 @@ class Validator{
     });
 }
 
-module.exports = Validator
+export default Validator

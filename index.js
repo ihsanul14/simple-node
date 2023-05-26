@@ -1,4 +1,3 @@
-const Framework = require('./framework')
-
-const framework = new Framework()
-framework.Start()
+import Router from "./framework/router/index.js"; 
+const router = new Router()
+router.Run();

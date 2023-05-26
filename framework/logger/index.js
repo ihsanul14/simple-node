@@ -1,5 +1,5 @@
-const winston = require('winston');
-const env = require('../env')
+import winston from 'winston';
+import env from '../env/index.js';
 
 class Logger{
 logger = winston.createLogger({
@@ -13,7 +13,6 @@ logger = winston.createLogger({
 Debug(message){
 this.logger.log('debug', message)
 }
-
 Info(message){
     this.logger.log('info', message)
     }
@@ -22,4 +21,4 @@ Error(message){
   }
 }
 
-module.exports = Logger
+export default Logger
