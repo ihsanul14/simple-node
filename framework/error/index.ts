@@ -1,8 +1,8 @@
-import Logger from "../logger/index.js";
+import Logger from "../logger/index.ts";
 
 const logger = new Logger()
 
-function Error(res, error){
+function Error(res:any, error:any){
     const statusFailed = "failed"
     var status = 500
     if (error.code === "ER_DUP_ENTRY"){

@@ -1,8 +1,8 @@
-import Controller from "../../application/controller/index.js" 
-import Validator from "../../application/middleware/validator/index.js";
-import Jwt from '../../application/middleware/jwt/index.js'
-import { DataController } from "../../application/controller/data.js";
-import Error from "../error/index.js";
+import Controller from "../../application/controller/index.ts" 
+import Validator from "../../application/middleware/validator/index.ts";
+import Jwt from '../../application/middleware/jwt/index.ts'
+import { DataController } from "../../application/controller/data.ts";
+import Error from "../error/index.ts";
 
 const dataController = new DataController
 const controller = new Controller(dataController)
@@ -10,8 +10,8 @@ const validator = new Validator()
 const jwt = new Jwt()
 const success = "success"
 
-export function DataRoutes(router){
-  router.get('/api/data', async (req, res) => {
+export function DataRoutes(router:any){
+  router.get('/api/data', async (req:any, res:any) => {
     try {
       const data = await controller.Data.GetData()
       res.json({status: "success", data:data});
@@ -20,7 +20,7 @@ export function DataRoutes(router){
     }
   });
 
-  router.get('/api/data/:id', async (req, res) => {
+  router.get('/api/data/:id', async (req:any, res:any) => {
     try {
       const data = await controller.Data.GetDataById(req.params.id)
       res.json({status: success, data:data});
@@ -30,7 +30,7 @@ export function DataRoutes(router){
   });
 
       
-      router.post('/api/data', jwt.authenticateJWT, validator.Validate(validator.CreateDataSchema),async (req, res) => {
+      router.post('/api/data', jwt.authenticateJWT, validator.Validate(validator.CreateDataSchema),async (req:any, res:any) => {
         try {
           const data = await controller.Data.CreateData(req.body)
           res.json({status:success,message: "success create data", data: {"nama": data}});
@@ -39,7 +39,7 @@ export function DataRoutes(router){
         }
       });
       
-      router.put('/api/data/:id', async (req, res) => {
+      router.put('/api/data/:id', async (req:any, res:any) => {
         try {
           const data = await controller.Data.UpdateData(req.params.id, req.body)
           res.json({status:success,message: "success update data", data: {"id": data}});
@@ -48,7 +48,7 @@ export function DataRoutes(router){
         }
       });
       
-      router.delete('/api/data/:id', async (req, res) => {
+      router.delete('/api/data/:id', async (req:any, res:any) => {
         try {
           const data = await controller.Data.DeleteData(req.params.id)
           res.json({status:success,message: "success delete data", data: {"id": data}});
@@ -57,7 +57,7 @@ export function DataRoutes(router){
         }
       });
 
-      router.post('/api/token', async (req, res) => {
+      router.post('/api/token', async (req:any, res:any) => {
         try {
           const data = await jwt.generateToken()
           res.json({status:success,data: {"token": data}});

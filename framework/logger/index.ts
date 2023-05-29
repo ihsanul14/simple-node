@@ -1,5 +1,5 @@
 import winston from 'winston';
-import env from '../env/index.js';
+import env from '../env/index.ts';
 
 class Logger{
 logger = winston.createLogger({
@@ -10,13 +10,13 @@ logger = winston.createLogger({
     ]
   });
 
-Debug(message){
+Debug(message:string){
 this.logger.log('debug', message)
 }
-Info(message){
+Info(message:string){
     this.logger.log('info', message)
     }
-Error(message){
+Error(message:string){
       this.logger.log('error', message)
   }
 }

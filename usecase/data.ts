@@ -1,5 +1,5 @@
-import Domain from '../domain/index.js'
-import {DataDomain} from '../domain/data.js' 
+import Domain from '../domain/index.ts'
+import {DataDomain} from '../domain/data.ts' 
 const dataDomain = new DataDomain()
 const domain = new Domain(dataDomain)
 export class DataUsecase{
@@ -7,19 +7,19 @@ export class DataUsecase{
         return domain.Data.GetData()
     }
 
-    GetDataByIdUseCase(id){
+    GetDataByIdUseCase(id:number){
         return domain.Data.GetDataById(id)
     }
     
-    CreateDataUseCase(req){
+    CreateDataUseCase(req:any){
         return domain.Data.CreateData(req)
     }
     
-    UpdateDataUseCase(id,req){
+    UpdateDataUseCase(id:any,req:any){
         return domain.Data.UpdateData(id, req)
     }
     
-    DeleteDataUseCase(req){
+    DeleteDataUseCase(req:any){
         return domain.Data.DeleteData(req)
     }
 }

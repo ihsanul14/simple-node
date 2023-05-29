@@ -1,4 +1,4 @@
-import env from '../../../framework/env/index.js';
+import env from '../../../framework/env/index.ts';
 import jwt from 'jsonwebtoken'
 const secretKey = env.jwt.secret
 
@@ -9,10 +9,10 @@ class Jwt{
         return token
     }
 
-    authenticateJWT = (req, res, next) => {
+    authenticateJWT = (req:any, res:any, next:any) => {
         const token = req.headers.authorization?.split(' ')[1];
         if (token) {
-          jwt.verify(token, secretKey, (err, user) => {
+          jwt.verify(token, secretKey, (err:any, user:any) => {
             if (err) {
               res.status(403).json({status: "failed", message: err.message});
             } else {

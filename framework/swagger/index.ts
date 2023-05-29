@@ -2,7 +2,7 @@ import swaggerUi from 'swagger-ui-express'
 import swaggerJsdoc from 'swagger-jsdoc'
 
 export const SwaggerUi = swaggerUi
-export const swaggerOptions = {
+export const swaggerOptions:any = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {

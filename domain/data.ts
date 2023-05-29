@@ -1,10 +1,10 @@
-import {MySQL} from '../framework/database/mysql.js'
+import {MySQL} from '../framework/database/mysql.ts'
 const mysql = new MySQL()
 export class DataDomain{
     async GetData(){
         var query = "SELECT * FROM testing"
         const connection = await mysql.Connect().getConnection();
-        const [data] = await connection.query(query);
+        const [data]:any = await connection.query(query);
         connection.release();
         if (data.length === 0){
             throw {code: 404, message: `no data found`}
@@ -12,10 +12,10 @@ export class DataDomain{
         return data
     }
 
-    async GetDataById(id){
+    async GetDataById(id:number){
         var query = "SELECT * FROM testing where id = ?"
         const connection = await mysql.Connect().getConnection();
-        const [data] = await connection.query(query,[id]);
+        const [data]:any = await connection.query(query,[id]);
         connection.release();
         if (data.length === 0){
             throw {code: 404, message: `no data found with id ${id}`}
@@ -23,7 +23,7 @@ export class DataDomain{
         return data
     }
     
-    async CreateData(req){
+    async CreateData(req:any){
         var query = `INSERT INTO testing (nama, created_at) VALUES (?, now())`
         const connection = await mysql.Connect().getConnection();
         await connection.query(query,[req.nama]);
@@ -31,7 +31,7 @@ export class DataDomain{
         return req.nama
     }
     
-    async UpdateData(id,req){
+    async UpdateData(id:number,req:any){
         var query = `UPDATE testing SET nama = ?, updated_at = now() WHERE id = ?`
         const connection = await mysql.Connect().getConnection();
         await connection.query(query,[req.nama, id]);
@@ -39,7 +39,7 @@ export class DataDomain{
         return id
     }
     
-    async DeleteData(id){
+    async DeleteData(id:number){
         var query = `DELETE FROM testing WHERE id = ?`
         const connection = await mysql.Connect().getConnection();
         await connection.query(query,[id]);

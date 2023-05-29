@@ -1,11 +1,11 @@
-import Controller from "../../application/controller/index.js"
-import {DataController} from '../../application/controller/data.js'
+import Controller from "../../application/controller/index.ts"
+import {DataController} from '../../application/controller/data.ts'
 import sinon from 'sinon'
 import assert from 'assert';
 
 describe('DataRouter', () => {
   it('Success', () => {
-    const mockResult = [{id: 1}]
+    const mockResult:any = [{id: 1}]
     const mockDataController = sinon.createStubInstance(DataController)
     mockDataController.GetData.returns(mockResult)
     const controller = new Controller(mockDataController);
@@ -14,11 +14,11 @@ describe('DataRouter', () => {
   });
 
   it('Failed', () => {
-    const mockResult = []
+    const mockResult:any = []
     const mockDataController = sinon.createStubInstance(DataController)
     mockDataController.GetData.returns(mockResult)
     const controller = new Controller(mockDataController);
-    const result = controller.Data.GetData();
+    const result:any = controller.Data.GetData();
     assert.strictEqual(result.length, 0);
   });
 });

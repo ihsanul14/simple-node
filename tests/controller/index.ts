@@ -1,11 +1,11 @@
-import Controller from "../../application/controller/index.js"
-import {DataController} from '../../application/controller/data.js'
+import Controller from "../../application/controller/index.ts"
+import {DataController} from '../../application/controller/data.ts'
 import sinon from 'sinon'
 import assert from 'assert';
 
 describe('DataController', () => {
   it('Success', () => {
-    const mockResult = [{id: 1}]
+    const mockResult:any = [{id: 1}]
     const mockDataController = sinon.createStubInstance(DataController)
     mockDataController.GetData.returns(mockResult)
     const controller = new Controller(mockDataController);
@@ -14,8 +14,8 @@ describe('DataController', () => {
   });
 
   it('Failed', () => {
-    var result
-    const controller = new Controller();
+    var result:any
+    const controller = new Controller(result);
     try{
       result = controller.Data.GetData();
     }catch(err){

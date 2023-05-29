@@ -1,4 +1,4 @@
-import {MySQL} from './mysql.js'
+import {MySQL} from './mysql.ts'
 const database = {
     MySQL
 }

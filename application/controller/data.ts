@@ -1,5 +1,5 @@
-import Usecase from '../../usecase/index.js'
-import { DataUsecase } from '../../usecase/data.js'
+import Usecase from '../../usecase/index.ts'
+import { DataUsecase } from '../../usecase/data.ts'
 
 const dataUsecase = new (DataUsecase)
 const usecase = new Usecase(dataUsecase)
@@ -8,16 +8,16 @@ export class DataController{
     GetData(){
         return usecase.Data.GetDataUseCase()
     }
-    GetDataById(id){
+    GetDataById(id:number){
         return usecase.Data.GetDataByIdUseCase(id)
     }
-    CreateData(req){
+    CreateData(req:any){
         return usecase.Data.CreateDataUseCase(req)
     }
-    UpdateData(id,req){
+    UpdateData(id:number,req:any){
         return usecase.Data.UpdateDataUseCase(id, req)
     }
-    DeleteData(id){
+    DeleteData(id:number){
         return usecase.Data.DeleteDataUseCase(id)
     }
 }

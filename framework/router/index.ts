@@ -1,10 +1,10 @@
-import { DataRoutes } from "./data.js";
-import Logger from "../logger/index.js";
-import { SwaggerUi, swaggerSpec } from '../swagger/index.js'
+import { DataRoutes } from "./data.ts";
+import Logger from "../logger/index.ts";
+import { SwaggerUi, swaggerSpec } from '../swagger/index.ts'
 import express from 'express'
-import env from "../env/index.js";
+import env from "../env/index.ts";
 
-const router = express();
+const router:any = express();
 class Router{
   Run(){
     router.use(express.json())

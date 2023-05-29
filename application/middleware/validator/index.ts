@@ -1,13 +1,13 @@
-import yup from 'yup';
+import * as y from 'yup';
 
-
+const yup:any = y
 class Validator{
-    Validate = (schema) => {
-        return (req, res, next)=> {
+    Validate = (schema:any) => {
+        return (req:any, res:any, next:any)=> {
             schema
             .validate(req.body)
             .then(() => next())
-            .catch((error) => {
+            .catch((error:Error) => {
             res.status(400).json({status: "failed", message: error.message});
             });    
         }  
