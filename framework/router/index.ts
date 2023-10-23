@@ -1,8 +1,8 @@
-import { DataRoutes } from "./data.ts";
-import Logger from "../logger/index.ts";
-import { SwaggerUi, swaggerSpec } from '../swagger/index.ts'
+import { DataRoutes } from "./data";
+import Logger from "../logger/index";
+import { SwaggerUi, swaggerSpec } from '../swagger/index'
 import express from 'express'
-import env from "../env/index.ts";
+import env from "../env/index";
 
 const router:any = express();
 class Router{

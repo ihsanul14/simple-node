@@ -1,4 +1,4 @@
-import env from '../../../framework/env/index.ts';
+import env from '../../../framework/env/index';
 import jwt from 'jsonwebtoken'
 const secretKey = env.jwt.secret
 

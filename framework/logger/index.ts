@@ -1,5 +1,5 @@
 import winston from 'winston';
-import env from '../env/index.ts';
+import env from '../env/index';
 
 class Logger{
 logger = winston.createLogger({

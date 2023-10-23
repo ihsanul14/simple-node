@@ -1,5 +1,5 @@
-import Domain from '../domain/index.ts'
-import {DataDomain} from '../domain/data.ts' 
+import Domain from '../domain/index'
+import {DataDomain} from '../domain/data' 
 const dataDomain = new DataDomain()
 const domain = new Domain(dataDomain)
 export class DataUsecase{

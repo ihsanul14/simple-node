@@ -1,4 +1,4 @@
- import { DataUsecase } from "./data.ts"
+ import { DataUsecase } from "./data"
  class Usecase{
     Data:DataUsecase
     constructor(dataUsecase:DataUsecase){

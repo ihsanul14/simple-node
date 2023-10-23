@@ -1,5 +1,5 @@
-import Usecase from '../../usecase/index.ts'
-import { DataUsecase } from '../../usecase/data.ts'
+import Usecase from '../../usecase/index'
+import { DataUsecase } from '../../usecase/data'
 
 const dataUsecase = new (DataUsecase)
 const usecase = new Usecase(dataUsecase)

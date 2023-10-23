@@ -1,8 +1,8 @@
-import Controller from "../../application/controller/index.ts" 
-import Validator from "../../application/middleware/validator/index.ts";
-import Jwt from '../../application/middleware/jwt/index.ts'
-import { DataController } from "../../application/controller/data.ts";
-import Error from "../error/index.ts";
+import Controller from "../../application/controller/index" 
+import Validator from "../../application/middleware/validator/index";
+import Jwt from '../../application/middleware/jwt/index'
+import { DataController } from "../../application/controller/data";
+import Error from "../error/index";
 
 const dataController = new DataController
 const controller = new Controller(dataController)

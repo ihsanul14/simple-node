@@ -1,4 +1,4 @@
-import {MySQL} from '../framework/database/mysql.ts'
+import {MySQL} from '../framework/database/mysql'
 const mysql = new MySQL()
 export class DataDomain{
     async GetData(){

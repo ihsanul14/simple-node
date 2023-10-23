@@ -1,5 +1,5 @@
-import Controller from "../../application/controller/index.ts"
-import {DataController} from '../../application/controller/data.ts'
+import Controller from "../../application/controller/index"
+import {DataController} from '../../application/controller/data'
 import sinon from 'sinon'
 import assert from 'assert';
 

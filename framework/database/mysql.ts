@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import env from '../env/index.ts'
+import env from '../env/index'
 
 export class MySQL{
   Connect(){
