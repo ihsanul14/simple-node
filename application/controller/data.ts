@@ -1,10 +1,11 @@
 import Usecase from '../../usecase/index'
 import { DataUsecase } from '../../usecase/data'
+import { IDataController } from '.'
 
 const dataUsecase = new (DataUsecase)
 const usecase = new Usecase(dataUsecase)
-  
-export class DataController{
+ 
+export class DataController implements IDataController{
     GetData(){
         return usecase.Data.GetDataUseCase()
     }
