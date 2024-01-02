@@ -20,6 +20,7 @@
     "nodemon": "^2.0.22",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.3",
+    "typeorm": "^0.3.17",
     "webpack": "^5.83.1",
     "winston": "^3.9.0",
     "yup": "^1.1.1"

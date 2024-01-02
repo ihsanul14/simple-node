@@ -1,7 +1,18 @@
 import { FieldPacket, OkPacket, ProcedureCallPacket, ResultSetHeader, RowDataPacket } from 'mysql2';
 import { IDataDomain } from '.';
 import {MySQL} from '../framework/database/mysql'
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
 const mysql = new MySQL()
+
+@Entity({name: 'testing'})
+class DataORM {
+    @PrimaryGeneratedColumn()
+    id?: number
+
+    @Column()
+    nama?: string
+}
 
 export type Data = {
     id: number,
