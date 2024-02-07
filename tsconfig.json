@@ -111,7 +111,7 @@
   "include": [
     "**/*.ts",
     "index.ts"
-  ],
+, "jest.config.js", "tests/router/index.js"  ],
   "exclude": [
     "node_modules"
   ],

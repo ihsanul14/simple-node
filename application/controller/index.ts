@@ -7,6 +7,9 @@ export interface IDataController{
 }
 
 class Controller{
+    static Data(Data: any, arg1: string) {
+      throw new Error("Method not implemented.");
+    }
     Data:IDataController
     constructor(dataController:IDataController){
         this.Data = dataController
