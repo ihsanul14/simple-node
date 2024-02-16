@@ -2,6 +2,7 @@ import { FieldPacket, OkPacket, ProcedureCallPacket, ResultSetHeader, RowDataPac
 import { IDataDomain } from '.';
 import {MySQL} from '../framework/database/mysql'
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { apmAgent } from '../framework/router';
 
 const mysql = new MySQL()
 
@@ -24,24 +25,38 @@ export type Data = {
 
 export class DataDomain implements IDataDomain{
     async GetData(): Promise<Data[]>{
+        const span = apmAgent.GetAgent().startSpan("GetData")
+        span?.setType('query')
         var query = "SELECT * FROM testing"
         const connection = await mysql.Connect().getConnection();
         const [data]: any = await connection.query(query);
         connection.release();
         if (!data || data?.length === 0){
+            span?.setOutcome('failure')
+            span?.setLabel('message','no data found')
+            span?.end()
             throw {code: 404, message: `no data found`}
         }
+        span?.setOutcome('success')
+        span?.end()
         return data as Data[]
     }
 
     async GetDataById(id:number): Promise<Data>{
+        const span = apmAgent.GetAgent().startSpan("GetDataById")
+        span?.setType('query')
         var query = "SELECT * FROM testing where id = ?"
         const connection = await mysql.Connect().getConnection();
         const [data]:any = await connection.query(query,[id]);
         connection.release();
         if (data.length === 0){
+            span?.setOutcome('failure')
+            span?.setLabel('message','no data found')
+            span?.end()
             throw {code: 404, message: `no data found with id ${id}`}
         }
+        span?.setOutcome('success')
+        span?.end()
         return data
     }
     
