@@ -3,7 +3,7 @@ import Validator from "../../application/middleware/validator/index";
 import Jwt from '../../application/middleware/jwt/index'
 import { DataController } from "../../application/controller/data";
 import Error from "../error/index";
-import { Application } from "express";
+import { Application,Request, Response } from "express";
 
 const dataController = new DataController
 export const controller = new Controller(dataController)
@@ -12,7 +12,7 @@ const jwt = new Jwt()
 const success = "success"
 
 export function DataRoutes(router:any):Application{
-  router.get('/api/data', async (req:any, res:any) => {
+  router.get('/api/data', async (req:Request, res:Response) => {
     try {
       const data = await controller.Data.GetData()
       res.json({status: "success", data:data});

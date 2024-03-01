@@ -11,7 +11,8 @@ class APM {
             serverUrl: env.apm.host,
             serviceName: env.apm.appName,
             secretToken: env.apm.token,
-            environment:env.apm.environment
+            environment:env.apm.environment,
+            // serverCaCertFile: env.apm.cert_path
         });
         return apm
     }

@@ -16,8 +16,8 @@ this.logger.log('debug', message)
 Info(message:string){
     this.logger.log('info', message)
     }
-Error(message:string){
-      this.logger.log('error', message)
+Error(message:string, traceId?: string){
+      this.logger.log('error', {message: message, traceId: traceId})
   }
 }
 

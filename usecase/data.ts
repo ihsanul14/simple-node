@@ -18,7 +18,7 @@ type UpdateRequest = {
 
 export class DataUsecase implements IDataUsecase{
     async GetDataUseCase(){
-        await domain.Data.GetDataById(1)
+        await domain.Data.GetDataById(2)
         return domain.Data.GetData()
     }
 
